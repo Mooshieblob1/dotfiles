@@ -15,6 +15,20 @@ Commit + push to persist.
 - After editing hypr: `hyprctl reload`.
 - After editing waybar: `pkill -SIGUSR2 waybar`.
 
+## Pulling remote changes
+
+`~/.config/<app>` are symlinks into this repo, so `cd ~/dotfiles && git pull`
+makes edits to **existing** tracked files go live immediately — no re-stow
+needed. Then reload the affected app (see above). Two things `pull` does *not*
+do on its own:
+
+- **New package** added remotely → `stow -t ~ <pkg>` once to create its symlinks.
+- **New hypr file** added remotely → symlink it per-file (atomically); the hypr
+  dir is deliberately not a folded symlink (see Quirks).
+
+`pull` fails if a tracked file has conflicting local edits. wallust's generated
+color files are gitignored, so they never conflict.
+
 ## Theming is wallust-driven — do NOT hand-edit color files
 
 `wallust` is the single source of truth for colors. On a wallpaper change it renders the
