@@ -10,7 +10,17 @@
 
     "modules-left":  ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/weather", "tray", "pulseaudio", "network", "cpu", "memory", "custom/mouse", "battery", "custom/power"],
+    "modules-right": ["custom/weather", "tray", "custom/hdr", "pulseaudio", "network", "cpu", "memory", "custom/mouse", "battery", "custom/power"],
+
+    "custom/hdr": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.local/bin/hdr-ctl status",
+        "interval": 5,
+        "signal": 8,
+        "on-click": "$HOME/.local/bin/hdr-ctl menu",
+        "on-click-right": "$HOME/.local/bin/hdr-ctl toggle"
+    },
 
     "custom/mouse": {
         "format": "{}",

@@ -1,0 +1,57 @@
+// Palette comes from wallust (generated, gitignored). See wallust.toml.
+@import "colors.scss";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+}
+
+// The GTK window root is opaque by default (inherits the wallust GTK theme's
+// window background) -> a sharp dark rectangle behind the rounded panel.
+// Make it transparent so only .hdr-panel is visible.
+window, window.background {
+  background-color: transparent;
+}
+
+.hdr-panel {
+  background-color: transparentize($background, 0.08);
+  color: $foreground;
+  border: 1px solid transparentize($border, 0.5);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 4px;
+}
+
+.hdr-title   { font-weight: bold; font-size: 14px; }
+.hdr-label   { color: transparentize($foreground, 0.35); font-size: 12px; }
+.hdr-readout { color: $accent; font-size: 12px; }
+
+.hdr-switch {
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 200ms;
+}
+.hdr-switch.on  { background-color: $accent; color: $background; }
+.hdr-switch.off { background-color: transparentize($border, 0.5); color: $foreground; }
+
+.hdr-slider {
+  margin-top: 2px;
+  trough {
+    background-color: transparentize($border, 0.5);
+    border-radius: 10px;
+    min-height: 8px;
+    min-width: 220px;
+    highlight {
+      background-color: $accent;
+      border-radius: 10px;
+    }
+  }
+  slider {
+    background-color: $foreground;
+    border-radius: 999px;
+    min-height: 16px;
+    min-width: 16px;
+    margin: -5px;
+  }
+}

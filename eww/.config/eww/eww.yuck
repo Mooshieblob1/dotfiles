@@ -1,0 +1,25 @@
+;; HDR control dropdown for DP-2. Opened from the waybar button via
+;; `hdr-ctl menu`; all state changes go through ~/.local/bin/hdr-ctl.
+
+(defvar hdr_on "true")
+(defvar hdr_lum 100)
+
+(defwidget hdr-panel []
+  (box :class "hdr-panel" :orientation "v" :space-evenly false :spacing 12
+    (box :class "hdr-row" :orientation "h" :space-evenly false
+      (label :class "hdr-title" :text "HDR" :halign "start" :hexpand true)
+      (button :class {hdr_on == "true" ? "hdr-switch on" : "hdr-switch off"}
+              :onclick "~/.local/bin/hdr-ctl toggle && eww update hdr_on=$(~/.local/bin/hdr-ctl is-on)"
+        (label :text {hdr_on == "true" ? "ON" : "OFF"})))
+    (label :class "hdr-label" :text "Max luminance" :halign "start")
+    (scale :class "hdr-slider"
+           :value hdr_lum
+           :min 50 :max 300
+           :onchange "eww update hdr_lum={} && ~/.local/bin/hdr-ctl lum {}")
+    (label :class "hdr-readout" :halign "end" :text "${round(hdr_lum, 0)} nits")))
+
+(defwindow hdr
+  :monitor 0
+  :geometry (geometry :x "12px" :y "52px" :anchor "top right" :width "260px")
+  :stacking "overlay"
+  (hdr-panel))

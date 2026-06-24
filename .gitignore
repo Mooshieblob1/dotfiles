@@ -5,6 +5,7 @@ hypr/.config/hypr/colors.conf
 waybar/.config/waybar/colors.css
 waybar/.config/waybar/calendar-colors.jsonc
 wofi/.config/wofi/colors.css
+eww/.config/eww/colors.scss
 mako/.config/mako/config
 
 # machine-specific fish state

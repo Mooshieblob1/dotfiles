@@ -51,6 +51,7 @@ These targets are **generated at runtime and gitignored** — never edit them; e
 | `waybar/.config/waybar/colors.css`               | `waybar-colors.css`        |
 | `waybar/.config/waybar/calendar-colors.jsonc`    | `waybar-calendar.jsonc`    |
 | `wofi/.config/wofi/colors.css`                   | `wofi-colors.css`          |
+| `eww/.config/eww/colors.scss`                    | `eww-colors.scss`          |
 | `~/.config/mako/config` (entire file)            | `mako-config`              |
 | `~/.themes/wallust/gtk-3.{0,20}/gtk.css` (outside repo) | `flatcolor-gtk3*.css` |
 | VSCode theme (outside repo)                      | `vscode-color-theme.json`  |
@@ -65,6 +66,11 @@ These targets are **generated at runtime and gitignored** — never edit them; e
 - **mako is intentionally NOT a stow package.** Its entire config is wallust-generated,
   so `~/.config/mako/` is left as a plain directory. The source lives in the wallust
   template `mako-config`.
+- **eww / layer-shell popups: no outer `box-shadow`.** eww sizes the surface to its
+  content, so an outer shadow clips into a hard dark rectangle around the panel. Style
+  popups with background + border + `border-radius` only, keep the window root
+  transparent (`window, window.background { background-color: transparent; }`), and use
+  an inset highlight if you want depth. (waybar/wofi are normal toplevels and shadow fine.)
 - **Gitignored, do not commit:** the wallust outputs above, `fish/.config/fish/fish_variables`
   (machine-specific), `*.bak`, and `result` (Nix build artifacts).
 - **Apps themselves are installed by the NixOS system flake** (separate repo at
@@ -72,6 +78,6 @@ These targets are **generated at runtime and gitignored** — never edit them; e
 
 ## Packages
 
-`hypr` `waybar` `wallust` `fish` `wofi` `fastfetch` `gtk-3.0` `ghostty` `nvim` `zathura` `tmux`
+`hypr` `waybar` `wallust` `fish` `wofi` `eww` `fastfetch` `gtk-3.0` `ghostty` `nvim` `zathura` `tmux`
 
 (`ghostty`, `nvim`, `zathura`, `tmux` originated from szymonwilczek/dotfiles.)
