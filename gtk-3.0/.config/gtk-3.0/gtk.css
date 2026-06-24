@@ -1,0 +1,5 @@
+/* Intentionally minimal.
+   Full GTK theming now comes from the "wallust" theme in ~/.themes/wallust,
+   which wallust regenerates from the palette on every wallpaper change.
+   Anything you add here loads AFTER the theme and overrides it — keep it for
+   one-off tweaks only. Previous Adwaita-override CSS: gtk.css.pre-wallust-theme.bak */

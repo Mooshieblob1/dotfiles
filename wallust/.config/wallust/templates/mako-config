@@ -1,0 +1,11 @@
+font=JetBrainsMono Nerd Font 11
+background-color={{ background }}E6
+text-color={{ foreground }}
+border-color={{ color4 }}
+border-size=2
+border-radius=6
+default-timeout=5000
+padding=10
+margin=8
+anchor=top-right
+max-visible=5

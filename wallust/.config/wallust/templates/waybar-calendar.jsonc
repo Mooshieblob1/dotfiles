@@ -1,0 +1,9 @@
+{
+    "clock": {
+        "calendar": {
+            "format": {
+                "today": "<span color='{{ color4 }}'><b>{}</b></span>"
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@define-color background {{ background }};
+@define-color foreground {{ foreground }};
+@define-color accent     {{ color4 }};
+@define-color accent2    {{ color6 }};
+@define-color border     {{ color8 }};

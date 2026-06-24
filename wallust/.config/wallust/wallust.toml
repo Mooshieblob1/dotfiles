@@ -1,0 +1,17 @@
+backend = "fastresize"
+color_space = "salience"
+palette = "saliencedark"
+check_contrast = true
+
+[templates]
+hyprland = { template = 'hyprland-colors.conf', target = '~/.config/hypr/colors.conf' }
+waybar   = { template = 'waybar-colors.css',     target = '~/.config/waybar/colors.css' }
+waybarcal = { template = 'waybar-calendar.jsonc', target = '~/.config/waybar/calendar-colors.jsonc' }
+wofi     = { template = 'wofi-colors.css',       target = '~/.config/wofi/colors.css' }
+mako     = { template = 'mako-config',           target = '~/.config/mako/config' }
+gtk3     = { template = 'flatcolor-gtk3.css',     target = '~/.themes/wallust/gtk-3.0/gtk.css' }
+gtk320   = { template = 'flatcolor-gtk320.css',   target = '~/.themes/wallust/gtk-3.20/gtk.css' }
+  vscode   = { template = 'vscode-color-theme.json', target = '~/.vscode/extensions/wallust-theme/themes/wallust-color-theme.json' }
+
+[hooks]
+reload = "sh -c 'pkill -SIGUSR2 waybar 2>/dev/null; makoctl reload 2>/dev/null; hyprctl reload 2>/dev/null; thunar -q 2>/dev/null; true'"

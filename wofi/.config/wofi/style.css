@@ -1,0 +1,52 @@
+@import "/home/blob/.config/wofi/colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0;
+    background: alpha(@background, 0.92);
+    border: 1px solid @accent;
+    border-radius: 12px;
+}
+
+#input {
+    margin: 8px;
+    padding: 8px 12px;
+    background: alpha(@border, 0.5);
+    color: @foreground;
+    border: none;
+    border-radius: 8px;
+}
+
+#inner-box {
+    margin: 4px 8px 8px 8px;
+    background: transparent;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 4px;
+    background: transparent;
+}
+
+#scroll { margin: 0; }
+
+#text {
+    margin: 4px;
+    color: @foreground;
+}
+
+#entry {
+    padding: 6px 10px;
+    background: transparent;
+    border-radius: 6px;
+}
+#entry:selected {
+    background: @accent;
+}
+#entry:selected #text {
+    color: @background;
+}

@@ -1,0 +1,18 @@
+{
+  "GK": { "icon": "", "color": "green" },
+  "LOTA": { "color": "cyan", "icon": "" },
+  "Serwis": {
+    "icon": "",
+    "color": "green",
+    "type": "serwis",
+    "services": [
+      "tmux-jot",
+      "arete.nvim",
+      "Skrecior",
+      "Neovim",
+      "Carmenta",
+      "Hati",
+      "Meson"
+    ]
+  }
+}

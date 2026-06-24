@@ -1,0 +1,93 @@
+{
+    "include": ["calendar-colors.jsonc"],
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 6,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+
+    "modules-left":  ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/weather", "tray", "pulseaudio", "network", "cpu", "memory", "custom/mouse", "battery", "custom/power"],
+
+    "custom/mouse": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/scripts/mouse.sh",
+        "interval": 30,
+        "signal": 9,
+        "tooltip": true,
+        "on-click": "$HOME/.config/waybar/scripts/mouse-dpi.sh"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/scripts/powermenu.sh"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/scripts/weather.sh",
+        "interval": 600,
+        "tooltip": true
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+            "6": "6", "7": "7", "8": "8", "9": "9"
+        },
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 60,
+        "separate-outputs": true
+    },
+    "clock": {
+        "format": " {:%a %d %b  %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "calendar": {
+            "mode": "month"
+        }
+    },
+    "tray": { "spacing": 8 },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": " muted",
+        "format-icons": { "default": [
+            "▕░░░░░░░░▏",
+            "▕▆░░░░░░░▏",
+            "▕▆▆░░░░░░▏",
+            "▕▆▆▆░░░░░▏",
+            "▕▆▆▆▆░░░░▏",
+            "▕▆▆▆▆▆░░░▏",
+            "▕▆▆▆▆▆▆░░▏",
+            "▕▆▆▆▆▆▆▆░▏",
+            "▕▆▆▆▆▆▆▆▆▏"
+        ] },
+        "tooltip-format": "{volume}% · {desc}",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": " offline",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "cpu":    { "format": " {usage}%", "interval": 2 },
+    "memory": { "format": "󰍛 {percentage}%", "interval": 2 },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": " {capacity}%",
+        "states": { "warning": 30, "critical": 15 }
+    }
+}

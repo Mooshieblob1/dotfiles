@@ -1,0 +1,53 @@
+/* wallust-generated — recolors GTK3 (Adwaita) apps like Thunar to the palette.
+   color4 is the primary accent (matches the hyprland active border + wofi). */
+
+/* Core Adwaita / GTK3 named colors */
+@define-color theme_bg_color {{ background }};
+@define-color theme_base_color {{ background }};
+@define-color theme_fg_color {{ foreground }};
+@define-color theme_text_color {{ foreground }};
+@define-color theme_selected_bg_color {{ color4 }};
+@define-color theme_selected_fg_color {{ background }};
+
+@define-color theme_unfocused_bg_color {{ background }};
+@define-color theme_unfocused_base_color {{ background }};
+@define-color theme_unfocused_fg_color {{ foreground }};
+@define-color theme_unfocused_text_color {{ foreground }};
+@define-color theme_unfocused_selected_bg_color {{ color4 }};
+@define-color theme_unfocused_selected_fg_color {{ background }};
+
+@define-color insensitive_bg_color {{ background }};
+@define-color insensitive_base_color {{ background }};
+@define-color insensitive_fg_color {{ color8 }};
+
+@define-color borders {{ color8 }};
+@define-color unfocused_borders {{ color8 }};
+
+@define-color warning_color {{ color3 }};
+@define-color error_color {{ color1 }};
+@define-color success_color {{ color2 }};
+
+/* libadwaita-style names (harmless on GTK3, future-proofs GTK4 apps) */
+@define-color window_bg_color {{ background }};
+@define-color window_fg_color {{ foreground }};
+@define-color view_bg_color {{ background }};
+@define-color view_fg_color {{ foreground }};
+@define-color accent_bg_color {{ color4 }};
+@define-color accent_fg_color {{ background }};
+@define-color accent_color {{ color4 }};
+@define-color headerbar_bg_color {{ color0 }};
+@define-color headerbar_fg_color {{ foreground }};
+@define-color sidebar_bg_color {{ color0 }};
+@define-color sidebar_fg_color {{ foreground }};
+@define-color card_bg_color {{ color0 }};
+
+/* Thunar side pane: tint the shortcuts/sidebar to color0 with accent selection */
+.sidebar, treeview.view {
+    background-color: {{ color0 }};
+    color: {{ foreground }};
+}
+.sidebar :selected,
+treeview.view:selected {
+    background-color: {{ color4 }};
+    color: {{ background }};
+}

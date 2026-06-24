@@ -1,0 +1,97 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(@background, 0.85);
+    color: @foreground;
+    border-radius: 12px;
+    border: 1px solid alpha(@color8, 0.5);
+}
+
+#workspaces {
+    margin: 4px 6px;
+    padding: 0 4px;
+    background: alpha(@color0, 0.6);
+    border-radius: 8px;
+}
+#workspaces button {
+    color: @color7;
+    padding: 0 8px;
+    background: transparent;
+    border-radius: 6px;
+    margin: 2px;
+    transition: 200ms;
+}
+#workspaces button.active {
+    color: #000000;
+    background: @color4;
+    font-weight: bold;
+}
+#workspaces button:hover {
+    background: alpha(@color4, 0.3);
+}
+
+#custom-power {
+    color: @color1;
+    background: alpha(@color0, 0.6);
+    padding: 0 12px;
+    margin: 4px 6px 4px 2px;
+    border-radius: 8px;
+    transition: 200ms;
+}
+#custom-power:hover {
+    color: @background;
+    background: @color1;
+}
+
+#window {
+    color: @color7;
+    padding: 0 12px;
+    font-style: italic;
+}
+
+#clock {
+    color: @foreground;
+    padding: 0 12px;
+    background: alpha(@color0, 0.6);
+    border-radius: 8px;
+    margin: 4px;
+}
+
+#custom-weather, #tray, #pulseaudio, #network, #cpu, #memory, #custom-mouse, #battery {
+    padding: 0 10px;
+    margin: 4px 2px;
+    color: @foreground;
+    background: alpha(@color0, 0.6);
+    border-radius: 8px;
+}
+
+#custom-weather { color: @color4; margin-left: 6px; }
+#custom-weather.weather-error { color: @color8; }
+
+#pulseaudio { color: @color6; }
+#network    { color: @color4; }
+#cpu        { color: @color3; }
+#memory     { color: @color5; }
+#battery    { color: @color2; }
+
+#battery.warning  { color: @color3; }
+#battery.critical { color: @color1; animation: blink 1s linear infinite alternate; }
+
+#custom-mouse              { color: @color6; transition: 200ms; }
+#custom-mouse:hover        { color: @background; background: @color6; }
+#custom-mouse.charging     { color: @color2; }
+#custom-mouse.warning      { color: @color3; }
+#custom-mouse.critical     { color: @color1; animation: blink 1s linear infinite alternate; }
+#custom-mouse.disconnected { color: @color8; }
+
+@keyframes blink {
+    to { background: @color1; color: @background; }
+}
