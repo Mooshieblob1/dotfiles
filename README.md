@@ -34,7 +34,7 @@ git clone https://github.com/Mooshieblob1/dotfiles ~/dotfiles
 cd ~/dotfiles
 
 # stow every package (back up / move any conflicting real files first)
-stow -t ~ hypr waybar wallust fish wofi fastfetch gtk-3.0 ghostty nvim zathura tmux
+stow -t ~ hypr waybar wallust fish wofi eww fastfetch gtk-3.0 ghostty nvim zathura tmux
 ```
 
 Re-stow a single package after adding files: `stow -R -t ~ <pkg>`.
@@ -53,6 +53,7 @@ After editing configs:
 | `wallust`   | `~/.config/wallust`             |
 | `fish`      | `~/.config/fish`                |
 | `wofi`      | `~/.config/wofi`                |
+| `eww`       | `~/.config/eww`                 |
 | `fastfetch` | `~/.config/fastfetch`           |
 | `gtk-3.0`   | `~/.config/gtk-3.0`             |
 | `ghostty`   | `~/.config/ghostty`             |
@@ -82,6 +83,7 @@ matching *template* instead and re-render. The mapping:
 | `waybar/.config/waybar/colors.css`              | `waybar-colors.css`      |
 | `waybar/.config/waybar/calendar-colors.jsonc`   | `waybar-calendar.jsonc`  |
 | `wofi/.config/wofi/colors.css`                  | `wofi-colors.css`        |
+| `eww/.config/eww/colors.scss`                   | `eww-colors.scss`        |
 | `~/.config/mako/config` (whole file)            | `mako-config`            |
 | `~/.themes/wallust/gtk-3.{0,20}/gtk.css`        | `flatcolor-gtk3*.css`    |
 | VSCode color theme                              | `vscode-color-theme.json`|
@@ -96,6 +98,13 @@ matching *template* instead and re-render. The mapping:
 - **mako is intentionally not a stow package** — its config is 100%
   wallust-generated, so `~/.config/mako/` is left as a plain directory. Its
   source lives in the wallust template `mako-config`.
+- **HDR control (eww):** a waybar button opens an `eww` dropdown for DP-2 with an
+  HDR on/off toggle and a max-luminance slider. The logic lives in `hdr-ctl`
+  (kept in `~/.local/bin`, **not** in this repo), which rewrites the
+  hyprland-sourced state fragment `hypr/.config/hypr/hdr.conf` and reloads
+  Hyprland — `monitorv2` luminance keys can't be re-applied via `hyprctl keyword`.
+  eww/layer-shell popups get no outer `box-shadow` (it clips to a hard rectangle);
+  see [`AGENTS.md`](AGENTS.md).
 - **Gitignored:** the wallust outputs above, `fish/.config/fish/fish_variables`
   (machine-specific), `*.bak`, and Nix `result` artifacts.
 
