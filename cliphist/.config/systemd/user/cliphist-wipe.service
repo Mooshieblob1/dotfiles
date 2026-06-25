@@ -1,0 +1,6 @@
+[Unit]
+Description=Wipe cliphist clipboard history
+
+[Service]
+Type=oneshot
+ExecStart=/run/current-system/sw/bin/cliphist wipe
